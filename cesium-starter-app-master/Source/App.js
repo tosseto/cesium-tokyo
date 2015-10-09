@@ -1,5 +1,14 @@
 //ビューアーを呼び出す
-var viewer = new Cesium.Viewer('cesiumContainer');
+//var viewer = new Cesium.Viewer('cesiumContainer');
+
+//地理院タイル読み込み
+var viewer = new Cesium.Viewer('cesiumContainer', {
+imageryProvider: new Cesium.OpenStreetMapImageryProvider({
+url: 'http://cyberjapandata.gsi.go.jp/xyz/std/',
+credit: new Cesium.Credit('地理院タイル', '', 'http://maps.gsi.go.jp/development/ichiran.html')
+}),
+baseLayerPicker: false
+});
 
 //ポイントを追加
 var point = viewer.entities;
